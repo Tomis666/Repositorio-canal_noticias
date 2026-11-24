@@ -85,7 +85,7 @@ def modificar_usuario():
         raise ValueError('No existe un usuario con ese id.')
     nombre = pedir_texto(f'Nombre [{usuario.nombre}] (ENTER para conservar): ', minimo=3, conservar=usuario.nombre)
     correo = pedir_texto(f'Correo [{usuario.correo}] (ENTER para conservar): ', conservar=usuario.correo)
-    id_rol = elegir_registro('Roles', lista_roles(), lambda r: r.nombre, conservar=usuario.rol_id,
+    id_rol = elegir_registro('Roles', lista_roles(), lambda r: r.nombre, conservar=usuario.id_rol,
                              mensaje=f'Id del rol [{usuario.rol.nombre}] (ENTER para conservar): ', campo_id='id_rol')
     nueva = pedir_contrasena_nueva('Nueva contraseña (ENTER para conservar la actual): ', conservar=True)
     editar_usuario(usuario, nombre, correo, id_rol, nueva or None)

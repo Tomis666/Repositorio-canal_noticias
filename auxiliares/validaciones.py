@@ -61,7 +61,7 @@ def pedir_contrasena_nueva(mensaje='Contraseña: ', conservar=False):
     Con conservar=True, ENTER devuelve '' (= no cambiarla)."""
     print('La contraseña debe tener 8-15 caracteres, mayúscula, minúscula, número y un símbolo de: ! @ # $ % & /')
     while True:
-        valor = getpass.getpass(mensaje)
+        valor = input(mensaje)
         if valor == '' and conservar:
             return ''
         valor, errores = validar_contrasena(valor)

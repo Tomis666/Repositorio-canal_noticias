@@ -61,9 +61,9 @@ def modificar_articulo():
         raise ValueError('No existe un artículo con ese id.')
     titulo = pedir_texto(f'Titular [{articulo.titulo}] (ENTER para conservar): ', minimo=5, conservar=articulo.titulo)
     contenido = pedir_texto('Contenido (ENTER para conservar): ', conservar=articulo.contenido)
-    id_categoria = elegir_registro('Categorías', lista_categorias(), lambda c: c.nombre, conservar=articulo.categoria_id,
+    id_categoria = elegir_registro('Categorías', lista_categorias(), lambda c: c.nombre, conservar=articulo.id_categoria,
                                    mensaje=f'Id de la categoría [{articulo.categoria.nombre}]: ', campo_id='id_categoria')
-    id_estado = elegir_registro('Estados', lista_estados(), lambda e: e.estado, conservar=articulo.estado_id,
+    id_estado = elegir_registro('Estados', lista_estados(), lambda e: e.estado, conservar=articulo.id_estado,
                                 mensaje=f'Id del estado [{articulo.estado.estado}]: ', campo_id='id_estado')
     actuales = [e.id_etiqueta for e in etiquetas_del_articulo(articulo.id_articulo)]
     ids_etiquetas = elegir_varios('Etiquetas', lista_etiquetas(), lambda e: e.nombre, conservar=actuales, campo_id='id_etiqueta')
